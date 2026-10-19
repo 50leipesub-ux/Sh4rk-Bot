@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 let validKeys = ["Kukirin2026", "SecretKey123"]; 
 
 app.get('/raw-keys', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
     res.send(validKeys.join('\n')); 
 });
 
@@ -28,4 +29,4 @@ client.on('messageCreate', (message) => {
     }
 });
 
-client.login(process.env.DISCORD_TOKEN); 
+client.login(process.env.DISCORD_TOKEN);
